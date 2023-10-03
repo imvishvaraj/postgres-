@@ -20,6 +20,6 @@ services:
     volumes:
       - ./pgadmin-config/servers.json:/pgadmin4/servers.json  # Mount servers.json file
     ports:
-      - "8080:80"
+      - "8080:8080"
     depends_on:
       - db
