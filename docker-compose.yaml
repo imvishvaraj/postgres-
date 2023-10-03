@@ -11,3 +11,15 @@ services:
       - /mnt/your_volume_name:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    volumes:
+      - ./pgadmin-config/servers.json:/pgadmin4/servers.json  # Mount servers.json file
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
